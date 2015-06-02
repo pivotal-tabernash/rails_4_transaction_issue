@@ -1,4 +1,4 @@
-There is an inconsistency between transaction rollbacks when an acitve record model has no has many relationships and when it has one. 
+There is an inconsistency between transaction rollbacks when an active record model has no has many relationships and when it has one. 
 
 
 In the former case, if a record is created and then rolled back the instance will have an id set. 
@@ -29,3 +29,5 @@ We have tested under the following conditions:
 - Ruby 2.1.2
 - Rails 4.2.0 and 4.2.1
 - Postgres and Sqlite3
+
+We discovered the issue while upgrading from 3.2 to 4.2.0. Rails 3.2 does not have the same inconsistency. 
